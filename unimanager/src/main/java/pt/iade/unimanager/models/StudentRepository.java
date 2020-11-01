@@ -2,6 +2,7 @@ package pt.iade.unimanager.models;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class StudentRepository {
     private static ArrayList<Student> students = new ArrayList<Student>();
@@ -15,4 +16,29 @@ public class StudentRepository {
         s = new Student("James", LocalDate.parse("2001-07-02"), 'M');
         students.add(s);
     }
+
+	public static List<Student> getStudents() {
+		return students;
+    }
+    
+    public static Student getStudent(int number) {
+        for (Student student : students)
+            if (student.getNumber() == number)
+                return student;
+
+        return null;
+    }
+
+    public static boolean deleteStudent(int number) {
+        for (Student student : students)
+            if (student.getNumber() == number)
+                return students.remove(student);
+        
+        return false;
+    }
+
+	public static Student addStudent(Student student) {
+        students.add(student);
+        return student;
+	}
 }

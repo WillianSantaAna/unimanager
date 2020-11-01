@@ -15,12 +15,16 @@ public class Student {
         this.birthDate = birthDate;
         this.gender = gender;
         this.number = nextNumber;
-        this.nextNumber++;
         this.email = "";
+        nextNumber++;
     }
 
     public static int getNextNumber() {
         return nextNumber;
+    }
+
+    public static void setNextNumber(int nextNumber) {
+        Student.nextNumber = nextNumber;
     }
 
     public String getName() {
@@ -31,11 +35,35 @@ public class Student {
         this.name = name;
     }
 
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public LocalDate getBirthDate() {
-        return birthDate;
+    public char getGender() {
+        return gender;
+    }
+
+    public void setGender(char gender) {
+        this.gender = gender;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 }
