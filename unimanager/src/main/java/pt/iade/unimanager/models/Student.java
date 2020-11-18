@@ -1,6 +1,9 @@
 package pt.iade.unimanager.models;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Student {
     private static int nextNumber = 0;
@@ -9,22 +12,21 @@ public class Student {
     private String email;
     private char gender;
     private int number;
+    @JsonIgnore
+    private ArrayList<Enrolment> enrolments;
 
     public Student(String name, LocalDate birthDate, char gender) {
         this.name = name;
         this.birthDate = birthDate;
         this.gender = gender;
         this.number = nextNumber;
-        this.email = "";
         nextNumber++;
+        email = "";
+        enrolments = new ArrayList<Enrolment>();
     }
 
     public static int getNextNumber() {
         return nextNumber;
-    }
-
-    public static void setNextNumber(int nextNumber) {
-        Student.nextNumber = nextNumber;
     }
 
     public String getName() {
@@ -37,10 +39,6 @@ public class Student {
 
     public LocalDate getBirthDate() {
         return birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
     }
 
     public String getEmail() {
@@ -63,7 +61,20 @@ public class Student {
         return number;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void enroll(Enrolment enrolment) {
+        enrolments.add(enrolment);
+        enrolment.getUnit().getEnrolments().add(enrolment);
+    }
+
+    public ArrayList<Enrolment> getEnrolments() {
+        return enrolments;
+    }
+
+    public Enrolment getEnrolmentByUnitId(int unitId) {
+        for (Enrolment enr : enrolments)
+            if (enr.getUnit().getId() == unitId)
+                return enr;
+
+        return null;
     }
 }

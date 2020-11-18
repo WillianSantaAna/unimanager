@@ -1,15 +1,18 @@
-package pt.iade.unimanager.models;
+package pt.iade.unimanager.models.repositories;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import pt.iade.unimanager.models.Enrolment;
+import pt.iade.unimanager.models.Student;
 
 public class StudentRepository {
     private static ArrayList<Student> students = new ArrayList<Student>();
 
     public static void populate() {
         Student s;
-        s = new Student("John",LocalDate.parse("2000-05-24"),'M');
+        s = new Student("John", LocalDate.parse("2000-05-24"), 'M');
         s.setEmail("john@gmail.com");
         students.add(s);
         students.add(new Student("Mary", LocalDate.parse("1999-12-23"), 'F'));
@@ -17,10 +20,10 @@ public class StudentRepository {
         students.add(s);
     }
 
-	public static List<Student> getStudents() {
-		return students;
+    public static List<Student> getStudents() {
+        return students;
     }
-    
+
     public static Student getStudent(int number) {
         for (Student student : students)
             if (student.getNumber() == number)
@@ -30,15 +33,21 @@ public class StudentRepository {
     }
 
     public static boolean deleteStudent(int number) {
-        for (Student student : students)
-            if (student.getNumber() == number)
-                return students.remove(student);
-        
-        return false;
+        return students.removeIf((student) -> student.getNumber() == number);
     }
 
-	public static Student addStudent(Student student) {
+    public static Student addStudent(Student student) {
         students.add(student);
         return student;
-	}
+    }
+
+    public static ArrayList<Enrolment> getEnrolments(int number) {
+        for (Student student : students)
+            if (student.getNumber() == number)
+                return student.getEnrolments();
+        
+        return null;
+    }
+    
+    
 }
