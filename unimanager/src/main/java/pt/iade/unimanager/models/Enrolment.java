@@ -22,4 +22,8 @@ public class Enrolment {
     public Unit getUnit() {
         return unit;
     }
+
+    public double getGrade() {
+        return this.grade;
+    }
 }
