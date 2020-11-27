@@ -1,2 +1,3 @@
-
-    ![alt text](https://github.com/WillianSantaAna/unimanager/blob/main/docs/uml_1.jpg "UML 1")
+UML 1
+:-------------------------:
+![original-design](./docs/uml_1.jpg)
