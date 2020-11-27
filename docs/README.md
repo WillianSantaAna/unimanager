@@ -1,3 +1,3 @@
 UML 1
 :-------------------------:
-![original-design](./docs/uml_1.jpg)
+![Class Diagram 1](./uml_1.jpg)
