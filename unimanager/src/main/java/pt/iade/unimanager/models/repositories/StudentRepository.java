@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import pt.iade.unimanager.models.Enrolment;
 import pt.iade.unimanager.models.Student;
 
@@ -44,7 +43,7 @@ public class StudentRepository {
         return student;
     }
 
-    public static ArrayList<Enrolment> getEnrolments(int number) {
+    public static List<Enrolment> getEnrolments(int number) {
         for (Student student : students)
             if (student.getNumber() == number)
                 return student.getEnrolments();
