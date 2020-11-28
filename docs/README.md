@@ -5,3 +5,7 @@ UML 1
 UML 2
 :-------------------------:
 ![Class Diagram 2](./uml_2.jpg)
+
+UML 3
+:-------------------------:
+![Class Diagram 3](./uml_3.jpg)
