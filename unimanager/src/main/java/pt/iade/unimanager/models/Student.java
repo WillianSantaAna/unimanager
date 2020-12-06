@@ -10,13 +10,13 @@ public class Student extends Person {
     private int number;
 
     @JsonIgnore
-    private ArrayList<Enrolment> enrolments;
+    private ArrayList<Enrolment> enrollments;
 
     public Student(String name, LocalDate birthDate, char gender) {
         super(name, gender, birthDate);
         this.number = nextNumber;
         nextNumber++;
-        enrolments = new ArrayList<Enrolment>();
+        enrollments = new ArrayList<Enrolment>();
     }
 
     public static int getNextNumber() {
@@ -59,17 +59,17 @@ public class Student extends Person {
         return this.number;
     }
 
-    public void enroll(Enrolment enrolment) {
-        enrolments.add(enrolment);
-        enrolment.getUnit().getEnrollments().add(enrolment);
+    public void enroll(Enrolment enrollment) {
+        enrollments.add(enrollment);
+        enrollment.getUnit().getEnrollments().add(enrollment);
     }
 
-    public ArrayList<Enrolment> getEnrolments() {
-        return this.enrolments;
+    public ArrayList<Enrolment> getEnrollments() {
+        return this.enrollments;
     }
 
     public Enrolment getEnrolmentByUnitId(int unitId) {
-        for (Enrolment enr : enrolments)
+        for (Enrolment enr : enrollments)
             if (enr.getUnit().getId() == unitId)
                 return enr;
 

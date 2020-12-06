@@ -59,17 +59,17 @@ public class StudentController {
         return StudentRepository.addStudent(student);
     }
 
-    @GetMapping(path = "{number}/enrolments", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Enrolment> getEnrolments(@PathVariable("number") int number) throws NotFoundException {
-        logger.info("Sending enrolments of student with number " + number);
+    @GetMapping(path = "{number}/enrollments", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Enrolment> getEnrollments(@PathVariable("number") int number) throws NotFoundException {
+        logger.info("Sending enrollments of student with number " + number);
         Student student = StudentRepository.getStudent(number);
         if (student != null)
-            return student.getEnrolments();
+            return student.getEnrollments();
         else
             throw new NotFoundException("" + number, "Student", "number");
     }
 
-    @GetMapping(path = "{number}/enrolments/{unitId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "{number}/enrollments/{unitId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Enrolment getEnrolment(@PathVariable("number") int number, @PathVariable("unitId") int unitId)
             throws NotFoundException {
         logger.info("Sending enrolment with id " + unitId + " of student with number " + number);
@@ -84,7 +84,7 @@ public class StudentController {
             throw new NotFoundException("" + number, "Student", "number");
     }
 
-    @PutMapping(path = "{number}/enrolments/{unitId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(path = "{number}/enrollments/{unitId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Enrolment setGrade(@PathVariable("number") int number, @PathVariable("unitId") int unitId,
             @RequestBody double grade) throws NotFoundException {
         logger.info("Setting grade of enrolment with id " + unitId + " of student with number " + number);
@@ -100,10 +100,10 @@ public class StudentController {
             throw new NotFoundException("" + number, "Student", "number");
     }
 
-    @PostMapping(path = "{number}/enrolments", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "{number}/enrollments", produces = MediaType.APPLICATION_JSON_VALUE)
     public Enrolment addEnrolment(@PathVariable("number") int number, @RequestBody int unitId)
             throws NotFoundException, AlreadyExistsException {
-        logger.info("Enroling student with number " + number + " in unit with id " + unitId);
+        logger.info("Enrolling student with number " + number + " in unit with id " + unitId);
         Student student = StudentRepository.getStudent(number);
         if (student != null) {
             Unit unit = UnitRepository.getUnit(unitId);
@@ -121,12 +121,12 @@ public class StudentController {
             throw new NotFoundException("" + number, "Student", "number");
     }
 
-    @GetMapping(path = "{number}/enrolments/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "{number}/enrollments/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Enrolment getEnrolmentByUnitId(@PathVariable("number") int number, @PathVariable("number") int id) {
         return null;
     }
 
-    @PostMapping(path = "{number}/enrolments", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "{number}/enrollments", produces = MediaType.APPLICATION_JSON_VALUE)
     public boolean addEnrolment(@PathVariable("number") int number) {
         return true;
     }
