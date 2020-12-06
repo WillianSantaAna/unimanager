@@ -11,13 +11,13 @@ public class Unit {
    private Teacher teacher;
    
    @JsonIgnore
-   private ArrayList<Enrolment> enrolments;
+   private ArrayList<Enrolment> enrollments;
 
    public Unit (int id, String name, int credits, Teacher teacher) {
       this.id = id;
       this.name = name;
       this. credits = credits;
-      enrolments = new ArrayList<Enrolment>();
+      enrollments = new ArrayList<Enrolment>();
       teacher = this.teacher;
    }
 
@@ -33,7 +33,15 @@ public class Unit {
       return credits;
    }
 
-   public ArrayList<Enrolment> getEnrolments() {
-      return enrolments;
+   public ArrayList<Enrolment> getEnrollments() {
+      return enrollments;
+   }
+
+   public Teacher getTeacher() {
+      return this.teacher;
+   }
+
+   public void setTeacher(Teacher teacher) {
+      this.teacher = teacher;
    }
 }

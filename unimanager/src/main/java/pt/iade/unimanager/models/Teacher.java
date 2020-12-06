@@ -30,7 +30,7 @@ public class Teacher extends Person {
 
     @Override
     public String getEmail() {
-        return "Professor's Email: " + this.email;
+        return this.email;
     }
 
     @Override

@@ -14,7 +14,7 @@ public class TeacherRepository {
         teachers.add(new Teacher("Pedro", 'M', LocalDate.parse("1981-09-14")));
         teachers.add(new Teacher("Marcos", 'M', LocalDate.parse("1981-09-14")));
         teachers.add(new Teacher("Francisco", 'M', LocalDate.parse("1981-09-14")));
-        teachers.add(new Teacher("Priscila", 'F', LocalDate.parse("1981-09-14")));
+        teachers.add(new Teacher("Priscilla", 'F', LocalDate.parse("1981-09-14")));
         teachers.add(new Teacher("Roberto", 'M', LocalDate.parse("1981-09-14")));
         teachers.add(new Teacher("Ana", 'F', LocalDate.parse("1981-09-14")));
     }

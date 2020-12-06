@@ -61,7 +61,7 @@ public class Student extends Person {
 
     public void enroll(Enrolment enrolment) {
         enrolments.add(enrolment);
-        enrolment.getUnit().getEnrolments().add(enrolment);
+        enrolment.getUnit().getEnrollments().add(enrolment);
     }
 
     public ArrayList<Enrolment> getEnrolments() {

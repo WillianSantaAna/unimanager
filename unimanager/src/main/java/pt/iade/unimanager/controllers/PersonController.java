@@ -44,23 +44,20 @@ public class PersonController {
         return null;
     }
 
+    @GetMapping(path = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Person> searchPersons(@RequestParam(value = "name", defaultValue = "") String name,
+            @RequestParam(value = "email", defaultValue = "") String email) {
+        ArrayList<Person> persons = getAllPersons();
+        persons.removeIf((p) -> !(p.getName().contains(name) && p.getEmail().contains(email)));
+
+        return persons;
+    }
+
     private ArrayList<Person> getAllPersons() {
         ArrayList<Person> persons = new ArrayList<>();
 
         persons.addAll(StudentRepository.getStudents());
         persons.addAll(TeacherRepository.getTeachers());
-
-        return persons;
-    }
-
-    @GetMapping(path = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Person> searchPersons(@RequestParam(value = "name", defaultValue = "") String name,
-            @RequestParam(value = "email", defaultValue = "") String email) {
-        ArrayList<Person> persons = getAllPersons();
-        
-        for (Person person : persons)
-            if (!(person.getName().contains(name) && person.getEmail().contains(email)))
-                persons.remove(person);
 
         return persons;
     }
