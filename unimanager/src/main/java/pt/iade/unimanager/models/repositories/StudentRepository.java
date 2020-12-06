@@ -3,13 +3,12 @@ package pt.iade.unimanager.models.repositories;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import pt.iade.unimanager.models.Enrolment;
 import pt.iade.unimanager.models.Student;
 
 public class StudentRepository {
     
-    @JsonIgnore
+    
     private static ArrayList<Student> students = new ArrayList<Student>();
 
     public static void populate() {

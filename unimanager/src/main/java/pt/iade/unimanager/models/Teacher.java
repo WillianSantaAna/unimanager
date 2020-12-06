@@ -16,11 +16,11 @@ public class Teacher extends Person {
     }
 
     public int getMecNumber() {
-        return mecNumber;
+        return this.mecNumber;
     }
 
     public ArrayList<Unit> getUnits() {
-        return units;
+        return this.units;
     }
 
     @Override
@@ -29,7 +29,26 @@ public class Teacher extends Person {
     }
 
     @Override
-    public String toString() {
-        return "" + mecNumber + ": " + name;
+    public String getEmail() {
+        return "Professor's Email: " + this.email;
     }
+
+    @Override
+    public String toString() {
+        return "" + this.mecNumber + ": " + this.name;
+    }
+
+    @Override
+    public String getReference() {
+        return "T" + this.mecNumber;
+    }
+
+    public void addUnit(Unit unit) {
+        units.add(unit);
+    }
+
+    public void removeUnit(Unit unit) {
+        units.remove(unit);
+    }
+   
 }

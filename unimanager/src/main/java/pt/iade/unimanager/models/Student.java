@@ -3,22 +3,19 @@ package pt.iade.unimanager.models;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Student {
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+public class Student extends Person {
     private static int nextNumber = 0;
-    private String name;
-    private LocalDate birthDate;
-    private String email;
-    private char gender;
     private int number;
+
+    @JsonIgnore
     private ArrayList<Enrolment> enrolments;
 
     public Student(String name, LocalDate birthDate, char gender) {
-        this.name = name;
-        this.birthDate = birthDate;
-        this.gender = gender;
+        super(name, gender, birthDate);
         this.number = nextNumber;
         nextNumber++;
-        email = "";
         enrolments = new ArrayList<Enrolment>();
     }
 
@@ -27,7 +24,7 @@ public class Student {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -35,11 +32,15 @@ public class Student {
     }
 
     public LocalDate getBirthDate() {
-        return birthDate;
+        return this.birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
@@ -47,7 +48,7 @@ public class Student {
     }
 
     public char getGender() {
-        return gender;
+        return this.gender;
     }
 
     public void setGender(char gender) {
@@ -55,7 +56,7 @@ public class Student {
     }
 
     public int getNumber() {
-        return number;
+        return this.number;
     }
 
     public void enroll(Enrolment enrolment) {
@@ -64,7 +65,7 @@ public class Student {
     }
 
     public ArrayList<Enrolment> getEnrolments() {
-        return enrolments;
+        return this.enrolments;
     }
 
     public Enrolment getEnrolmentByUnitId(int unitId) {
@@ -73,5 +74,15 @@ public class Student {
                 return enr;
 
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "" + this.number + ": " + this.name;
+    }
+
+    @Override
+    public String getReference() {
+        return "S" + this.number;
     }
 }

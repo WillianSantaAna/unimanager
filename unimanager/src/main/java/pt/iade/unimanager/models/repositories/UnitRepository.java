@@ -1,14 +1,16 @@
 package pt.iade.unimanager.models.repositories;
 
 import java.util.ArrayList;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import pt.iade.unimanager.models.Unit;
 
 public class UnitRepository {
 
-    @JsonIgnore
     private static ArrayList<Unit> units = new ArrayList<Unit>();
+
+    public static void populate() {
+        
+    }
 
     public static ArrayList<Unit> getUnits() {
         return units;

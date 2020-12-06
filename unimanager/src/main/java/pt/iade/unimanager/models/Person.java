@@ -15,7 +15,11 @@ public abstract class Person {
         this.birthDate = birthDate;
     }
 
-    protected abstract String getName();
+    public abstract String getReference();
+
+    public abstract String getName();
+
+    public abstract String getEmail();
 
     public abstract String toString();
 }
