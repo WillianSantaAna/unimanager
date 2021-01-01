@@ -2,7 +2,6 @@ package pt.iade.unimanager.models;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;

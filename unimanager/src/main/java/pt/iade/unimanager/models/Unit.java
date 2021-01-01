@@ -46,6 +46,15 @@ public class Unit implements Statistical {
       this.teacher = teacher;
    }
 
+   public ArrayList<Student> getStudents() {
+      ArrayList<Student> students = new ArrayList<>();
+
+      for (Enrolment enrolment : enrolments)
+         students.add(enrolment.getStudent());
+
+      return students;
+   }
+
    @Override
    public double getAverage() {
       double sum = 0;
