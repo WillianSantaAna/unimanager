@@ -42,10 +42,10 @@ public class StudentRepository {
         return student;
     }
 
-    public static List<Enrolment> getEnrollments(int number) {
+    public static List<Enrolment> getEnrolments(int number) {
         for (Student student : students)
             if (student.getNumber() == number)
-                return student.getEnrollments();
+                return student.getEnrolments();
         
         return null;
     }
