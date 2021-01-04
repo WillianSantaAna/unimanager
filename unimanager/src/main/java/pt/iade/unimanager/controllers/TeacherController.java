@@ -53,11 +53,11 @@ public class TeacherController {
             throw new NotFoundException("" + mecNumber, "Teacher", "mecNumber");
     }
 
-    @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "{mecNumber}/unit", produces = MediaType.APPLICATION_JSON_VALUE)
     public void addTeacher(@RequestBody Teacher teacher, @RequestBody Unit unit) {
         logger.info("Add Teacher " + teacher.getMecNumber() + " to Unit " + unit.getId());
 
-        teacher.addUnit(unit);
+        TeacherRepository.addUnit(mecNumber, unit);
     }
 
     @DeleteMapping(path = "{unitId}", produces = MediaType.APPLICATION_JSON_VALUE)

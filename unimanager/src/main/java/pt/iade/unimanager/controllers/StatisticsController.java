@@ -24,7 +24,7 @@ import pt.iade.unimanager.models.repositories.UnitRepository;
 @RestController
 @RequestMapping(path = "/api/statistics")
 public class StatisticsController {
-    private Logger logger = LoggerFactory.getLogger(TeacherController.class);
+    private Logger logger = LoggerFactory.getLogger(StatisticsController.class);
     private static final int NSLOTS = 5;
 
     @GetMapping(path = "histogram/{type}/{number}", produces = MediaType.APPLICATION_JSON_VALUE)

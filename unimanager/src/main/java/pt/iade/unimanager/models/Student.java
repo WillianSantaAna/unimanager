@@ -20,24 +20,12 @@ public class Student extends Person implements Statistical {
         enrolments = new ArrayList<Enrolment>();
     }
 
-    public static int getNextNumber() {
-        return nextNumber;
-    }
-
     public String getName() {
         return this.name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public LocalDate getBirthDate() {
         return this.birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
     }
 
     public String getEmail() {
@@ -50,10 +38,6 @@ public class Student extends Person implements Statistical {
 
     public char getGender() {
         return this.gender;
-    }
-
-    public void setGender(char gender) {
-        this.gender = gender;
     }
 
     public int getNumber() {
@@ -115,8 +99,8 @@ public class Student extends Person implements Statistical {
     @Override
     public ArrayList<HistogramSlot> getHistogram(int nSlots) {
         ArrayList<HistogramSlot> histograms = new ArrayList<>();
-        double start = 0, end = 0, value = 0, ceilGrade = 20;
-        final double SLOT = ceilGrade / nSlots;
+        double start = 0, end = 0, value = 0, gradeCeiling = 20;
+        final double SLOT = gradeCeiling / nSlots;
 
         for (int i = 0; i < nSlots; i++) {
             value = 0;
@@ -132,7 +116,7 @@ public class Student extends Person implements Statistical {
                         value++;
                 }
             }
-                
+
             histograms.add(new HistogramSlot(start, end, value));
         }
 

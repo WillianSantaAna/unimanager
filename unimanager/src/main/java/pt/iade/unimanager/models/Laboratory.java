@@ -10,4 +10,12 @@ public class Laboratory extends Room {
         super(designation, capacity);
         this.materials = materials;
     }
+
+    public ArrayList<Material> getMaterials() {
+        return materials;
+    }
+
+    public void addMaterial(Material material) {
+        materials.add(material);
+    }
 }

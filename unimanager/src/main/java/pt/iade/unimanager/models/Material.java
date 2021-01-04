@@ -2,9 +2,9 @@ package pt.iade.unimanager.models;
 
 public class Material {
     protected String name;
-    protected String state;
+    protected MaterialState state;
 
-    public Material(String name, String state) {
+    public Material(String name, MaterialState state) {
         this.name = name;
         this.state = state;
     }
@@ -13,15 +13,11 @@ public class Material {
         return this.name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getState() {
+    public MaterialState getState() {
         return this.state;
     }
 
-    public void setState(String state) {
+    public void setState(MaterialState state) {
         this.state = state;
     }
 }

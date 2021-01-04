@@ -23,6 +23,16 @@ public class Teacher extends Person {
         return this.units;
     }
 
+    public void addUnit(Unit unit) {
+        unit.setTeacher(this);
+        units.add(unit);
+    }
+
+    public void removeUnit(Unit unit) {
+        unit.setTeacher(null);
+        units.remove(unit);
+    }
+
     @Override
     public String getName() {
         return "Professor " + this.name;
@@ -42,13 +52,4 @@ public class Teacher extends Person {
     public String getReference() {
         return "T" + this.mecNumber;
     }
-
-    public void addUnit(Unit unit) {
-        units.add(unit);
-    }
-
-    public void removeUnit(Unit unit) {
-        units.remove(unit);
-    }
-   
 }

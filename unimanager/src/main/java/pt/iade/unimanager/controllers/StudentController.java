@@ -120,14 +120,4 @@ public class StudentController {
         } else
             throw new NotFoundException("" + number, "Student", "number");
     }
-
-    @GetMapping(path = "{number}/enrolments/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Enrolment getEnrolmentByUnitId(@PathVariable("number") int number, @PathVariable("number") int id) {
-        return null;
-    }
-
-    @PostMapping(path = "{number}/enrolments", produces = MediaType.APPLICATION_JSON_VALUE)
-    public boolean addEnrolment(@PathVariable("number") int number) {
-        return true;
-    }
 }

@@ -6,16 +6,12 @@ public class Computer extends Material {
 
     protected ArrayList<String> specifications;
     
-    public Computer(String name, String state, ArrayList<String> specifications) {
+    public Computer(String name, MaterialState state, ArrayList<String> specifications) {
         super(name, state);
         this.specifications = specifications;
     }
 
     public ArrayList<String> getSpecifications() {
         return specifications;
-    }
-
-    public void setSpecifications(ArrayList<String> specifications) {
-        this.specifications = specifications;
     }
 }
