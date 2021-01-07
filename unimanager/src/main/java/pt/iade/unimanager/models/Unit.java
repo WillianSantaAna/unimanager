@@ -72,12 +72,14 @@ public class Unit implements Statistical {
 
    @Override
    public double getMax() {
-      return Collections.max(getGradesList());
+      // return Collections.max(getGradesList());
+      return 0;
    }
 
    @Override
    public double getMin() {
-      return Collections.min(getGradesList());
+      // return Collections.min(getGradesList());
+      return 0;
    }
 
    @Override

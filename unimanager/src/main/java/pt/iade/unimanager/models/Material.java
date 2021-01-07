@@ -4,9 +4,9 @@ public class Material {
     protected String name;
     protected MaterialState state;
 
-    public Material(String name, MaterialState state) {
+    public Material(String name) {
         this.name = name;
-        this.state = state;
+        this.state = MaterialState.OK;
     }
 
     public String getName() {

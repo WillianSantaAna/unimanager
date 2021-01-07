@@ -8,8 +8,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -51,13 +49,6 @@ public class TeacherController {
             return teacher.getUnits();
         else
             throw new NotFoundException("" + mecNumber, "Teacher", "mecNumber");
-    }
-
-    @PostMapping(path = "{mecNumber}/unit", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void addTeacher(@RequestBody Teacher teacher, @RequestBody Unit unit) {
-        logger.info("Add Teacher " + teacher.getMecNumber() + " to Unit " + unit.getId());
-
-        TeacherRepository.addUnit(mecNumber, unit);
     }
 
     @DeleteMapping(path = "{unitId}", produces = MediaType.APPLICATION_JSON_VALUE)

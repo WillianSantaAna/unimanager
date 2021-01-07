@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import pt.iade.unimanager.models.Computer;
 import pt.iade.unimanager.models.Laboratory;
 import pt.iade.unimanager.models.Material;
-import pt.iade.unimanager.models.MaterialState;
 import pt.iade.unimanager.models.Room;
 import pt.iade.unimanager.models.exceptions.NotFoundException;
 import pt.iade.unimanager.models.repositories.RoomRepository;
@@ -60,7 +59,7 @@ public class RoomController {
         Laboratory laboratory = RoomRepository.getLaboratory(designation);
         
         if (laboratory != null) {
-            Computer computer = new Computer(name, MaterialState.OK, specifications);
+            Computer computer = new Computer(name, specifications);
             laboratory.addMaterial(computer);
         
             return computer;
