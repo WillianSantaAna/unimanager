@@ -1,7 +1,6 @@
 package pt.iade.unimanager.models;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -72,14 +71,23 @@ public class Unit implements Statistical {
 
    @Override
    public double getMax() {
-      // return Collections.max(getGradesList());
-      return 0;
+      double max = 0;
+      for (Enrolment enrolment : enrolments)
+         if (enrolment.getGrade() > max)
+            max = enrolment.getGrade();
+
+      return max;
    }
 
    @Override
    public double getMin() {
-      // return Collections.min(getGradesList());
-      return 0;
+      double min = 20;
+
+      for (Enrolment enrolment : enrolments)
+         if (enrolment.getGrade() < min)
+            min = enrolment.getGrade();
+
+      return min;
    }
 
    @Override
@@ -107,15 +115,5 @@ public class Unit implements Statistical {
       }
 
       return histograms;
-   }
-
-   private ArrayList<Double> getGradesList() {
-      ArrayList<Double> grades = new ArrayList<>();
-
-      for (Enrolment enrolment : enrolments)
-         if (enrolment.getGrade() >= 0)
-            grades.add(enrolment.getGrade());
-
-      return grades;
    }
 }
